@@ -1,8 +1,6 @@
-class Player:
-  def __init__(self, token):
-    self.token = token
+from actor import Actor
 
+class Player(Actor):
 
-  def move(self):
-    user_input = input("Type (1-9): ")
-    return user_input
+  def move(self, board):
+    return input("Type (1-9): ")

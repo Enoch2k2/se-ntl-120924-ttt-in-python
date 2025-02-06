@@ -1,5 +1,6 @@
 from helpers import *
 from player import Player
+from computer import Computer
 from game import Game
 from board import Board
 
@@ -32,10 +33,7 @@ class Cli:
       pause()
       self.menu()
     elif user_input == "1":
-      clear()
-      print("Playing 1 player")
-      line_space()
-      pause()
+      self.setup_one_player_game()
       self.menu()
     elif user_input == "2":
       self.setup_two_player_game()
@@ -53,6 +51,13 @@ class Cli:
       line_space()
       pause()
       self.menu()
+
+  def setup_one_player_game(self):
+    player_1 = Player(token="X")
+    player_2 = Computer(token="O")
+    board = Board()
+    game = Game(player_1=player_1, player_2=player_2, board=board)
+    game.play()
 
   def setup_two_player_game(self):
     player_1 = Player(token="X")

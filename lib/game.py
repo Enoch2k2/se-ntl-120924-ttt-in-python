@@ -1,4 +1,5 @@
 from helpers import *
+import ipdb
 class Game:
   WIN_COMBINATIONS=(
     (0,1,2), # top horizontal row
@@ -23,7 +24,7 @@ class Game:
     line_space()
     self.board.display()
     line_space()
-    user_input = self.current_player().move()
+    user_input = self.current_player().move(self.board)
     if self.board.valid_move(user_input):
       self.board.update(user_input, self.current_player().token)
     else:

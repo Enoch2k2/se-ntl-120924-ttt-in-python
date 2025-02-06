@@ -28,3 +28,12 @@ class Board:
   
   def full(self):
     return True if self.cells.count(" ") == 0 else False
+  
+  def available_cells(self):
+    idx = 0
+    available_cells = []
+    for cell in self.cells:
+      if cell == " ":
+        available_cells.append(idx)
+      idx += 1
+    return available_cells
