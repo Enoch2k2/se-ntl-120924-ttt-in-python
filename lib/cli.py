@@ -28,9 +28,7 @@ class Cli:
     user_input = input("Input Here: ")
     if user_input == "0":
       clear()
-      print("Playing 0 players")
-      line_space()
-      pause()
+      self.setup_zero_player_game()
       self.menu()
     elif user_input == "1":
       self.setup_one_player_game()
@@ -51,6 +49,13 @@ class Cli:
       line_space()
       pause()
       self.menu()
+
+  def setup_zero_player_game(self):
+    player_1 = Computer(token="X")
+    player_2 = Computer(token="O")
+    board = Board()
+    game = Game(player_1=player_1, player_2=player_2, board=board)
+    game.play()
 
   def setup_one_player_game(self):
     player_1 = Player(token="X")
